@@ -23,7 +23,7 @@ you can also refer to documentation in [bitnine site](https://bitnine.net/docume
 ![flow_of_call](flow_of_call.png)
 
 ### /api/auth/connect
-1st call must be '/api/auth/connect'
+The first call must be '/api/auth/connect'.
 
 #### request
 ```
@@ -122,7 +122,7 @@ Parameter: from
                     ],
                     "target": "12",
                     "props": {
-                        "owner": "hazard11",
+                        "owner": "agens",
                         "size": 22,
                         "name": "connect_to",
                         "is_dirty": false,
@@ -138,17 +138,17 @@ Parameter: from
     "state": "SUCCESS",
     "message": "network, labels.size=2 (1/1), relations=1, isDirty=false",
     "graph": {
-        "owner": "hazard11",
+        "owner": "agens",
         "name": "network",
         "is_dirty": false,
         "oid": "16386",
-        "jdbc_url": "jdbc:postgresql://127.0.0.1:5432/hazard11?ApplicationName=AgensBrowser",
+        "jdbc_url": "jdbc:postgresql://127.0.0.1:5432/agens?ApplicationName=AgensBrowser",
         "version": 1.3,
         "desc": ""
     },
     "labels": [
         {
-            "owner": "hazard11",
+            "owner": "agens",
             "size": 22,
             "neighbors": [
                 "hw"
@@ -178,7 +178,7 @@ Parameter: from
             "desc": ""
         },
         {
-            "owner": "hazard11",
+            "owner": "agens",
             "size": 19,
             "neighbors": [
                 "hw"
@@ -221,20 +221,446 @@ This call executes the cypher to perform data handling.
 URL: http://localhost:8085/api/core/query
 Method: GET
 Parameter: sql, options
+           sql=MATCH(a) return a limit 10
 ```
 #### response
+```
+{
+    "request": {
+        "options": "",
+        "txid": "core#100002",
+        "type": "QUERY",
+        "ssid": "dd71eb04-1464-41df-a544-f2d4a1769d03",
+        "command": "",
+        "sql": "MATCH (a) RETURN a limit 10;",
+        "target": ""
+    },
+    "record": {
+        "meta": [
+            {
+                "name": "a",
+                "index": 0,
+                "type": "NODE"
+            }
+        ],
+        "rows": [
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "1.1",
+                        "id": "1.1",
+                        "labels": [
+                            "ag_vertex"
+                        ],
+                        "props": {
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "ROUTER",
+                        "id": "12.1",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-1",
+                            "name": "ROUTER",
+                            "type": "ROUTER"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "SW_1ST",
+                        "id": "12.2",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-3",
+                            "name": "SW_1ST",
+                            "type": "SWITCH"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "SW_BB",
+                        "id": "12.3",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-4",
+                            "name": "SW_BB",
+                            "type": "SWITCH"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "SW_SAN",
+                        "id": "12.4",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "INT#2-3",
+                            "name": "SW_SAN",
+                            "type": "SWITCH"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "FW_1ST",
+                        "id": "12.5",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-2",
+                            "name": "FW_1ST",
+                            "type": "FIREWALL"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "FW_INT",
+                        "id": "12.6",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-6",
+                            "name": "FW_INT",
+                            "type": "FIREWALL"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "FW_DB",
+                        "id": "12.7",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-5",
+                            "name": "FW_DB",
+                            "type": "FIREWALL"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "IPS1",
+                        "id": "12.8",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-7",
+                            "name": "IPS1",
+                            "type": "IPS"
+                        }
+                    }
+                }
+            ],
+            [
+                {
+                    "data": {
+                        "size": 1,
+                        "name": "FW_WEB",
+                        "id": "12.9",
+                        "labels": [
+                            "hw"
+                        ],
+                        "props": {
+                            "rack": "PUB#1-8",
+                            "name": "FW_WEB",
+                            "type": "WEBFIREWALL"
+                        }
+                    }
+                }
+            ]
+        ]
+    },
+    "state": "SUCCESS",
+    "message": "return 10 rows (cols=1), graph(nodes=10, edges=0)",
+    "graph": {
+        "nodes": [
+            {
+                "data": {
+                    "size": 1,
+                    "name": "ROUTER",
+                    "id": "12.1",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-1",
+                        "name": "ROUTER",
+                        "type": "ROUTER"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "SW_1ST",
+                    "id": "12.2",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-3",
+                        "name": "SW_1ST",
+                        "type": "SWITCH"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "FW_WEB",
+                    "id": "12.9",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-8",
+                        "name": "FW_WEB",
+                        "type": "WEBFIREWALL"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "FW_DB",
+                    "id": "12.7",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-5",
+                        "name": "FW_DB",
+                        "type": "FIREWALL"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "IPS1",
+                    "id": "12.8",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-7",
+                        "name": "IPS1",
+                        "type": "IPS"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "FW_1ST",
+                    "id": "12.5",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-2",
+                        "name": "FW_1ST",
+                        "type": "FIREWALL"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "FW_INT",
+                    "id": "12.6",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-6",
+                        "name": "FW_INT",
+                        "type": "FIREWALL"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "SW_BB",
+                    "id": "12.3",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "PUB#1-4",
+                        "name": "SW_BB",
+                        "type": "SWITCH"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "1.1",
+                    "id": "1.1",
+                    "labels": [
+                        "ag_vertex"
+                    ],
+                    "props": {
+                    }
+                }
+            },
+            {
+                "data": {
+                    "size": 1,
+                    "name": "SW_SAN",
+                    "id": "12.4",
+                    "labels": [
+                        "hw"
+                    ],
+                    "props": {
+                        "rack": "INT#2-3",
+                        "name": "SW_SAN",
+                        "type": "SWITCH"
+                    }
+                }
+            }
+        ],
+        "meta": [
+            {
+                "owner": "",
+                "size": 0,
+                "neighbors": [
+                ],
+                "name": "ag_vertex",
+                "is_dirty": true,
+                "oid": "b1cb1775-d005-4b9c-8c42-3e1b473933b4",
+                "type": "NODE",
+                "size_not_empty": 0,
+                "properties": [
+                ],
+                "desc": ""
+            },
+            {
+                "owner": "agens",
+                "size": 9,
+                "neighbors": [
+                    "hw"
+                ],
+                "name": "hw",
+                "is_dirty": false,
+                "oid": "12",
+                "type": "NODE",
+                "size_not_empty": 9,
+                "properties": [
+                    {
+                        "size": 9,
+                        "type": "STRING",
+                        "key": "name"
+                    },
+                    {
+                        "size": 9,
+                        "type": "STRING",
+                        "key": "rack"
+                    },
+                    {
+                        "size": 9,
+                        "type": "STRING",
+                        "key": "type"
+                    }
+                ],
+                "desc": ""
+            }
+        ],
+        "edges": [
+        ]
+    }
+}
 
+```
 ### /api/core/command
-This call executes the sql to perform data handling.
+This call executes the to perform create and drop label(vertex label, edge label)
 
 #### request
 ```
 URL: http://localhost:8085/api/core/command
 Method: GET
 Parameter: type, command, target, options
+           type - CREATE, DROP
+           target - vlabel, elabel
+           command - name of vlabel, elabel
+/api/core/command?command=vlabel&type=CREATE&target=label_new
 ```
 #### response
+```
+{
+    "request": {
+        "options": "",
+        "txid": "core#100004",
+        "type": "CREATE",
+        "ssid": "dd71eb04-1464-41df-a544-f2d4a1769d03",
+        "command": "vlabel",
+        "sql": "CREATE vlabel label_new;",
+        "target": "label_new"
+    },
+    "label": {
+        "owner": "agens",
+        "size": 0,
+        "neighbors": [
+        ],
+        "name": "label_new",
+        "is_dirty": true,
+        "oid": "14",
+        "type": "NODE",
+        "size_not_empty": 0,
+        "properties": [
+        ],
+        "desc": ""
+    },
+    "state": "SUCCESS",
+    "message": "'CREATE' affected\n Also meta storage is updated(ADD/REPLACE)"
+}
 
+```
 ### /api/auth/disconnect
 This call removes session id.
 if you want to call other api, you must call '/api/auth/connect'.
@@ -246,3 +672,10 @@ Method: GET
 Parameter: NO
 ```
 #### response
+```
+{
+    "_link": "http://localhost:8085/api/core/connect",
+    "state": "SUCCESS",
+    "message": "disconnect client: ssid='dd71eb04-1464-41df-a544-f2d4a1769d03', done=true"
+}
+```
