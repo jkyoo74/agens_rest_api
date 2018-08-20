@@ -24,6 +24,7 @@ you can also refer to documentation in [bitnine site](https://bitnine.net/docume
 
 ### /api/auth/connect
 The first call must be '/api/auth/connect'.
+create session information through this api.
 
 #### request
 ```
@@ -221,7 +222,8 @@ This call executes the cypher to perform data handling.
 URL: http://localhost:8085/api/core/query
 Method: GET
 Parameter: sql, options
-           sql=MATCH(a) return a limit 10
+
+/api/core/query?sql=MATCH(a) return a limit 10
 ```
 #### response
 ```
@@ -628,6 +630,7 @@ Parameter: type, command, target, options
            type - CREATE, DROP
            target - vlabel, elabel
            command - name of vlabel, elabel
+           
 /api/core/command?command=vlabel&type=CREATE&target=label_new
 ```
 #### response
