@@ -617,8 +617,55 @@ Parameter: sql, options
         ]
     }
 }
-
 ```
+
+#### request
+```
+URL: http://localhost:8085/api/core/query
+Method: GET
+Parameter: sql, options
+
+/api/core/query?sql=select 1
+```
+#### response
+```
+{
+    "request": {
+        "options": "",
+        "txid": "core#100005",
+        "type": "QUERY",
+        "ssid": "bbbcb0da-06f7-4a45-b5d3-0e9c7e72ca7a",
+        "command": "",
+        "sql": "select 1;",
+        "target": ""
+    },
+    "record": {
+        "meta": [
+            {
+                "name": "?column?",
+                "index": 0,
+                "type": "NUMBER"
+            }
+        ],
+        "rows": [
+            [
+                1
+            ]
+        ]
+    },
+    "state": "SUCCESS",
+    "message": "return 1 rows (cols=1), no graph",
+    "graph": {
+        "nodes": [
+        ],
+        "meta": [
+        ],
+        "edges": [
+        ]
+    }
+}
+```
+
 ### /api/core/command
 This call executes the to perform create and drop label(vertex label, edge label)
 
