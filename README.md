@@ -53,7 +53,7 @@ This call retrieves the metadata of the specific object in graph db(node, edge..
 ```
 URL: http://localhost:8085/api/core/meta
 Method: GET
-Parameter: NO
+Parameter: from
 ```
 #### response
 ```
@@ -214,29 +214,30 @@ Parameter: NO
 
 
 ### /api/core/query
-1st call must be '/api/core/query'
+This call executes the cypher to perform data handling.
 
 #### request
 ```
 URL: http://localhost:8085/api/core/query
 Method: GET
-Parameter: NO
+Parameter: sql, options
 ```
 #### response
 
 ### /api/core/command
-1st call must be '/api/core/command'
+This call executes the sql to perform data handling.
 
 #### request
 ```
 URL: http://localhost:8085/api/core/command
 Method: GET
-Parameter: NO
+Parameter: type, command, target, options
 ```
 #### response
 
 ### /api/auth/disconnect
-1st call must be '/api/auth/disconnect'
+This call removes session id.
+if you want to call other api, you must call '/api/auth/connect'.
 
 #### request
 ```
