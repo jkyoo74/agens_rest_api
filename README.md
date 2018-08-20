@@ -17,4 +17,4 @@ https://bitnine.net/downloads/agensgraph-v-1-3-linux/
 https://bitnine.net/downloads/agensbrowser-v-1-0/
 
 ##FLOW
-![Alt text](/path/to/img.jpg)
+![flow_of_call](/jkyoo74/agens_rest_api/flow_of_call.png)
