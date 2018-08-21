@@ -48,9 +48,9 @@ the important thing is to remember the ssid value in the response.
 At the next request, this value will be set request header 'Authorization'.
 
 ### /api/core/meta
-This call retrieves the metadata of the specific object in graph db(node, edge...)
+This call retrieves the metadata for all objects in graph db(node, edge...)
 
-#### example1: request with no parameter
+#### example1:
 ##### request
 ```
 URL: http://localhost:8085/api/core/meta
