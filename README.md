@@ -20,7 +20,7 @@ you can also refer to documentation in [bitnine site](https://bitnine.net/docume
 
 ## FLOW
 
-![flow_of_call](flow_of_call.png)
+![flow_of_call](flow_of_call_v2.png)
 
 ### /api/auth/connect
 The first call must be '/api/auth/connect'.
