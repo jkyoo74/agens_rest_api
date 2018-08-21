@@ -1,10 +1,10 @@
 # AgensGraph RESTFul API
 - Author: Jungkeun Yoo
-## INTRODUCTION
-AgensGraph already has RESTFul APIs. 
-User can use these APIs to access AgensGraph.  
 
-This contains descriptions of there APIs.
+## INTRODUCTION
+AgensGraph supports RESTFul APIs for accessing AgensGraph.
+
+This document includes descriptions of there APIs.
 
 ## REQUIREMENT
 * AgensGraph as a Graph Database Server
@@ -25,14 +25,14 @@ you can also refer to documentation in [bitnine site](https://bitnine.net/docume
 ### /api/auth/connect
 The first call must be '/api/auth/connect'.
 create session information through this api.
-
-#### request
+#### example1: request to connect
+##### request
 ```
 URL: http://localhost:8085/api/auth/connect
 Method: GET
 Parameter: NO
 ```
-#### response
+##### response
 ```
 {
 "valid": true,
@@ -50,13 +50,14 @@ At the next request, this value will be set request header 'Authorization'.
 ### /api/core/meta
 This call retrieves the metadata of the specific object in graph db(node, edge...)
 
-#### request
+#### example1: request with no parameter
+##### request
 ```
 URL: http://localhost:8085/api/core/meta
 Method: GET
-Parameter: from
+Parameter: no
 ```
-#### response
+##### response
 ```
 {
     "meta": {
@@ -217,7 +218,8 @@ Parameter: from
 ### /api/core/query
 This call executes the cypher to perform data handling.
 
-#### request
+#### example1: request with cypher
+##### request
 ```
 URL: http://localhost:8085/api/core/query
 Method: GET
@@ -225,7 +227,7 @@ Parameter: sql, options
 
 /api/core/query?sql=MATCH(a) return a limit 10
 ```
-#### response
+##### response
 ```
 {
     "request": {
@@ -618,8 +620,8 @@ Parameter: sql, options
     }
 }
 ```
-
-#### request
+#### example2: request with sql
+##### request
 ```
 URL: http://localhost:8085/api/core/query
 Method: GET
@@ -627,7 +629,7 @@ Parameter: sql, options
 
 /api/core/query?sql=select 1
 ```
-#### response
+##### response
 ```
 {
     "request": {
@@ -669,7 +671,8 @@ Parameter: sql, options
 ### /api/core/command
 This call executes the to perform create and drop label(vertex label, edge label)
 
-#### request
+#### example1: request with parameter to create vlabel
+##### request
 ```
 URL: http://localhost:8085/api/core/command
 Method: GET
@@ -680,7 +683,7 @@ Parameter: type, command, target, options
            
 /api/core/command?command=vlabel&type=CREATE&target=label_new
 ```
-#### response
+##### response
 ```
 {
     "request": {
@@ -715,13 +718,14 @@ Parameter: type, command, target, options
 This call removes session id.
 if you want to call other api, you must call '/api/auth/connect'.
 
-#### request
+#### example1: request to disconnect
+##### request
 ```
 URL: http://localhost:8085/api/auth/disconnect
 Method: GET
 Parameter: NO
 ```
-#### response
+##### response
 ```
 {
     "_link": "http://localhost:8085/api/core/connect",
